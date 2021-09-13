@@ -1,20 +1,22 @@
-<!doctype html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"
-          name="viewport">
-    <meta content="ie=edge" http-equiv="X-UA-Compatible">
-    <title>Products</title>
-</head>
-<body>
+{% extends 'base.html' %}
+
+{% block content %}
+
 <h1>Products</h1>
 
-<ul>
+<div class="row">
     {% for product in products %}
-    <li>{{ product.name }} ($ {{product.price}})</li>
+    <div class="col">
+        <div class="card" style="width: 18rem;">
+            <img src="{{ product.image_url }}" class="card-img-top" alt="...">
+            <div class="card-body">
+                <h5 class="card-title">{{product.name}}</h5>
+                <p class="card-text">${{product.price}}</p>
+                <a href="#" class="btn btn-primary">Add to cart</a>
+            </div>
+        </div>
+    </div>
     {% endfor %}
-</ul>
-</body>
-</html>
+</div>
 
+{% endblock %}
